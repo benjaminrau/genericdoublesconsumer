@@ -4,7 +4,6 @@ import io.quarkus.runtime.StartupEvent;
 import io.quarkus.vertx.ConsumeEvent;
 import io.smallrye.mutiny.Multi;
 import io.vertx.mutiny.core.eventbus.EventBus;
-import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -27,7 +26,7 @@ public class HelloService extends GreetingService<HelloEvent> {
 
     @Override
     @ConsumeEvent(ADDRESS)
-    public void consume(@NonNull HelloEvent event) {
+    public void consume(HelloEvent event) {
         log.info("consuming HelloEvent on HelloService: {}", event.getMessage());
     }
 }
